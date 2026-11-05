@@ -4,16 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Don't Wait for the Warning Label</title>
-<meta name="description" content="Slides and the five habits from the keynote at the 3rd Annual Protect Yourself! Conference.">
+<meta name="description" content="Five habits that keep the human in the lead, from Dr. Megan Alstot's keynote at the 3rd Annual Protect Yourself! Conference.">
 <style>
   :root {
     --ink: #23264A;
     --indigo: #34459E;
     --purple: #6A56A8;
     --amber: #F2A93B;
+    --peach: #F6C99A;
     --pale: #F6F4FC;
+    --line: #DCD6F0;
   }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     font-family: Calibri, "Segoe UI", Arial, sans-serif;
@@ -22,51 +25,244 @@
     color: var(--ink);
     background: var(--pale);
   }
+  a { color: var(--indigo); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .skip { position: absolute; left: -999px; top: 0; background: #fff; padding: 0.5rem 1rem; }
+  .skip:focus { left: 1rem; z-index: 10; }
   header {
     background: linear-gradient(45deg, var(--indigo), var(--purple));
     color: #fff;
-    padding: 3rem 1.25rem 2.5rem;
+    padding: 2.5rem 1rem 2.25rem;
   }
-  .wrap { max-width: 44rem; margin: 0 auto; }
+  .wrap { max-width: 46rem; margin: 0 auto; }
   .label {
     display: inline-block;
     background: var(--amber);
     color: var(--ink);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 0.3rem 0.8rem;
     border-radius: 0.4rem;
   }
   h1 { font-family: Arial, sans-serif; font-size: 2.2rem; line-height: 1.2; margin: 1rem 0 0.5rem; }
-  .subtitle { font-size: 1.3rem; margin: 0; }
-  main { padding: 2rem 1.25rem 3rem; }
+  .subtitle { font-size: 1.3rem; margin: 0 0 1rem; }
+  .byline { font-size: 1.05rem; margin: 0; }
+  main { padding: 2rem 1rem 3rem; }
+  section { margin-bottom: 2.5rem; }
+  h2 { font-family: Arial, sans-serif; color: var(--indigo); font-size: 1.6rem; line-height: 1.25; margin: 0 0 1rem; }
+  h3 { font-family: Arial, sans-serif; font-size: 1.3rem; line-height: 1.3; margin: 0 0 0.4rem; }
   .card {
     background: #fff;
     border-radius: 0.8rem;
-    padding: 1.5rem;
+    padding: 1.4rem 1.5rem;
     box-shadow: 0 2px 8px rgba(106, 86, 168, 0.15);
+    margin-bottom: 1rem;
   }
-  h2 { font-family: Arial, sans-serif; color: var(--indigo); font-size: 1.5rem; margin-top: 0; }
-  footer { text-align: center; font-size: 1rem; padding: 0 1.25rem 2rem; }
+  .habit { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; }
+  .num {
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: var(--amber); color: var(--ink);
+    font-weight: 700; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .habit p { margin: 0 0 0.6rem; }
+  .carer { list-style: none; padding: 0; margin: 0.5rem 0 0.8rem; }
+  .carer li { margin-bottom: 0.3rem; }
+  .carer strong { color: var(--indigo); }
+  .prompt {
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    padding: 1rem 1.1rem;
+    margin: 0.6rem 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  .prompt-label { font-weight: 700; font-size: 1rem; color: var(--purple); display: block; margin-bottom: 0.3rem; }
+  button {
+    font: inherit; font-size: 1.05rem; font-weight: 700;
+    background: var(--indigo); color: #fff;
+    border: 0; border-radius: 0.5rem;
+    padding: 0.65rem 1.1rem; min-height: 2.75rem;
+    cursor: pointer;
+  }
+  button.secondary { background: #fff; color: var(--indigo); border: 2px solid var(--indigo); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .status { font-size: 1rem; min-height: 1.5rem; margin: 0.5rem 0 0; }
+  .note { background: var(--peach); border-radius: 0.8rem; padding: 1.1rem 1.4rem; }
+  .reads li { margin-bottom: 0.9rem; }
+  .reads span { display: block; font-size: 1.05rem; }
+  footer { text-align: center; font-size: 1rem; padding: 0 1rem 2.5rem; }
+  @media print {
+    body { background: #fff; font-size: 12pt; }
+    header { background: none; color: var(--ink); padding: 0 0 0.5rem; }
+    .label, .no-print, .actions, button, .status, #reads, #slides { display: none !important; }
+    main { padding: 0; }
+    .card { box-shadow: none; border: 1px solid #999; padding: 0.6rem 0.8rem; margin-bottom: 0.5rem; break-inside: avoid; }
+    .prompt { font-size: 10.5pt; padding: 0.4rem 0.6rem; }
+    h1 { font-size: 20pt; margin-top: 0; }
+    h2 { font-size: 15pt; }
+    h3 { font-size: 13pt; }
+    .num { width: 2rem; height: 2rem; font-size: 12pt; border: 1px solid var(--ink); }
+    .habit { grid-template-columns: 2rem 1fr; }
+  }
 </style>
 </head>
 <body>
+  <a class="skip" href="#habits">Skip to the five habits</a>
   <header>
     <div class="wrap">
-      <span class="label">Coming soon</span>
+      <span class="label">Your gift</span>
       <h1>Don't Wait for the Warning Label</h1>
       <p class="subtitle">Keeping the Human in the Lead in the Age of AI</p>
+      <p class="byline">Dr. Megan Alstot, Academy for Teaching and Learning, Baylor University<br>3rd Annual Protect Yourself! Conference, Better At Last, November 5, 2026</p>
     </div>
   </header>
+
   <main>
-    <div class="wrap card">
-      <h2>Thank you for stopping by</h2>
-      <p>This page will hold the slides, the five habits that keep the human in the lead, and a few good reads from the keynote at the 3rd Annual Protect Yourself! Conference, hosted by Better At Last on November 5, 2026.</p>
-      <p>Please check back soon.</p>
+    <div class="wrap">
+      <section aria-labelledby="idea">
+        <div class="card">
+          <h2 id="idea">The big idea</h2>
+          <p>AI amplifies your expertise. It doesn't replace your experience. AI can help you understand, but only humans should decide.</p>
+          <div class="actions">
+            <button type="button" onclick="window.print()">Print the five habits</button>
+            <button type="button" class="secondary" id="share">Share this page</button>
+          </div>
+          <p class="status" id="share-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="habits" aria-labelledby="habits-title">
+        <h2 id="habits-title">Five habits that keep the human in the lead</h2>
+
+        <article class="card habit">
+          <div class="num" aria-hidden="true">1</div>
+          <div>
+            <h3>Prompt as a CARER</h3>
+            <p>Give AI clear directions, the same way you would give them to a helper.</p>
+            <ul class="carer">
+              <li><strong>Context:</strong> what's going on and what you already know</li>
+              <li><strong>Action:</strong> what you want it to do</li>
+              <li><strong>Role:</strong> who it should act as</li>
+              <li><strong>Example:</strong> how you want it (a list, a summary, one question at a time)</li>
+              <li><strong>Rails:</strong> the limits (what to avoid, how long)</li>
+            </ul>
+            <div class="prompt"><span class="prompt-label">Try this</span><span id="p1">I just got my bloodwork results in my patient app. I have above-normal lymphocytes and below-normal neutrophils. Act as a patient educator and help me understand what these tests measure and what the results might mean. Don't diagnose me. Please keep explanations in simple language. I'm not a doctor. Give me questions I should ask my doctor at my appointment next week.</span></div>
+            <button type="button" class="secondary copy" data-target="p1">Copy this prompt</button>
+          </div>
+        </article>
+
+        <article class="card habit">
+          <div class="num" aria-hidden="true">2</div>
+          <div>
+            <h3>Manage the desk</h3>
+            <p>One topic per chat, so important details don't slide off the workspace. In a long chat, ask for a summary, then paste it into a new chat.</p>
+            <div class="prompt"><span class="prompt-label">Try this</span><span id="p2">Summarize what we've decided so far.</span></div>
+            <button type="button" class="secondary copy" data-target="p2">Copy this prompt</button>
+          </div>
+        </article>
+
+        <article class="card habit">
+          <div class="num" aria-hidden="true">3</div>
+          <div>
+            <h3>Lead with your expertise</h3>
+            <p>AI amplifies human expertise. Start with a topic you know well, and watch where it's right, wrong, or overstated. AI can help you understand, only humans should decide!</p>
+            <div class="prompt"><span class="prompt-label">Ask it to push back</span><span id="p3">What am I missing? What's the case against this? How did you get there?</span></div>
+            <button type="button" class="secondary copy" data-target="p3">Copy these questions</button>
+          </div>
+        </article>
+
+        <article class="card habit">
+          <div class="num" aria-hidden="true">4</div>
+          <div>
+            <h3>Protect privacy</h3>
+            <p>Don't give AI names or personal numbers (birthdate, Social Security, address, accounts, etc.). Keep it general: "someone in their 70s," "my bank," "a family member."</p>
+            <div class="prompt"><span class="prompt-label">Try this</span><span id="p4">My granddaughter is turning 13. She loves the beach and lives out West. Suggest four meaningful gift ideas, from something to buy to a care package.</span></div>
+            <button type="button" class="secondary copy" data-target="p4">Copy this prompt</button>
+          </div>
+        </article>
+
+        <article class="card habit">
+          <div class="num" aria-hidden="true">5</div>
+          <div>
+            <h3>Keep humans in your loop</h3>
+            <p>Use AI to reach the people you love, with a birthday poem, a gift idea, or a conversation starter, and keep real connection human! Ask your grandkids how they use AI, and show them how you check things.</p>
+            <div class="prompt"><span class="prompt-label">Try this</span><span id="p5">Write a funny, kind birthday poem for my best friend, who loves gardening and bad puns. Keep it to eight lines.</span></div>
+            <button type="button" class="secondary copy" data-target="p5">Copy this prompt</button>
+          </div>
+        </article>
+        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section aria-labelledby="fun" class="no-print">
+        <div class="card">
+          <h2 id="fun">Have some fun</h2>
+          <p>Kick the tires with something playful. No account is needed to try the free version of ChatGPT at chatgpt.com.</p>
+          <div class="prompt"><span class="prompt-label">From the talk</span><span id="p6">Write a love song from the Waco Suspension Bridge to the Brazos River.</span></div>
+          <button type="button" class="secondary copy" data-target="p6">Copy this prompt</button>
+        </div>
+      </section>
+
+      <section id="slides" aria-labelledby="slides-title">
+        <div class="note">
+          <h2 id="slides-title">Slides</h2>
+          <p>The slides from the keynote will be posted here after the conference.</p>
+        </div>
+      </section>
+
+      <section id="reads" aria-labelledby="reads-title">
+        <h2 id="reads-title">Good reads</h2>
+        <div class="card">
+          <ul class="reads">
+            <li><a href="https://www.pewresearch.org/internet/2026/06/17/why-dont-people-use-chatbots/">Why don't people use chatbots?</a><span>Pew Research Center, 2026</span></li>
+            <li><a href="https://si.umich.edu/about-umsi/news/older-adults-and-ai-u-m-poll-suggests-wary-welcome">Older adults and AI: A wary welcome</a><span>University of Michigan National Poll on Healthy Aging, 2025</span></li>
+            <li><a href="https://wtop.com/lifestyle/2026/03/ai-is-giving-bad-advice-to-flatter-its-users-says-new-study-on-dangers-of-overly-agreeable-chatbots/">AI is giving bad advice to flatter its users</a><span>Associated Press coverage of the 2026 Stanford study in Science</span></li>
+            <li><a href="https://www.aarp.org/money/scams-fraud/fbi-ftc-report-2025-losses">FBI report: Older adults hit hardest by internet crime</a><span>AARP, 2026</span></li>
+          </ul>
+        </div>
+      </section>
     </div>
   </main>
   <footer>Dr. Megan Alstot, Academy for Teaching and Learning, Baylor University</footer>
+
+<script>
+  (function () {
+    var copyStatus = document.getElementById('copy-status');
+    var shareStatus = document.getElementById('share-status');
+    function copyText(text, statusEl, done) {
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); statusEl.textContent = done; }
+        catch (e) { statusEl.textContent = 'Copy did not work. You can select the text and copy it.'; }
+        document.body.removeChild(ta);
+      }
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(function () { statusEl.textContent = done; }, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    }
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.getAttribute('data-target'));
+        btn.insertAdjacentElement('afterend', copyStatus);
+        copyText(el.textContent, copyStatus, 'Copied! Paste it into ChatGPT, Copilot, Gemini, or Claude.');
+      });
+    });
+    document.getElementById('share').addEventListener('click', function () {
+      var data = { title: "Don't Wait for the Warning Label", text: 'Five habits that keep the human in the lead with AI', url: location.href };
+      if (navigator.share) {
+        navigator.share(data).catch(function () {});
+      } else {
+        copyText(location.href, shareStatus, 'Link copied! Paste it into a text or email.');
+      }
+    });
+  })();
+</script>
 </body>
 </html>
