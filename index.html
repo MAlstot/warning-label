@@ -79,6 +79,7 @@
     margin: 0.6rem 0 0.4rem;
     font-size: 1.1rem;
   }
+  .template { white-space: pre-line; }
   .prompt-label { font-weight: 700; font-size: 1rem; color: var(--purple); display: block; margin-bottom: 0.3rem; }
   button {
     font: inherit; font-size: 1.05rem; font-weight: 700;
@@ -149,8 +150,13 @@
               <li><strong>Example:</strong> how you want it (a list, a summary, one question at a time)</li>
               <li><strong>Rails:</strong> the limits (what to avoid, how long)</li>
             </ul>
-            <div class="prompt"><span class="prompt-label">Try this</span><span id="p1">I just got my bloodwork results in my patient app. I have above-normal lymphocytes and below-normal neutrophils. Act as a patient educator and help me understand what these tests measure and what the results might mean. Don't diagnose me. Please keep explanations in simple language. I'm not a doctor. Give me questions I should ask my doctor at my appointment next week.</span></div>
-            <button type="button" class="secondary copy" data-target="p1">Copy this prompt</button>
+            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p1" class="template">Context: [What's going on and what I already know]
+Action: [What I want you to do]
+Role: Act as [who should answer, like a patient educator, a travel planner, or a holiday host]
+Example: Give me [the shape of the answer, like a short list, a summary, or one question at a time]
+Rails: [The limits, like what to avoid, how long, and plain language]
+Ask me any questions you need before you answer.</span></div>
+            <button type="button" class="secondary copy" data-target="p1">Copy this template</button>
           </div>
         </article>
 
