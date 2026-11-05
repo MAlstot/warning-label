@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Don't Wait for the Warning Label</title>
-<meta name="description" content="Five habits that keep the human in the lead, from Dr. Megan Alstot's keynote at the 3rd Annual Protect Yourself! Conference.">
+<meta name="description" content="Five habits that keep the human in the lead, and slides from Dr. Megan Alstot's keynote at the 3rd Annual Protect Yourself! Conference.">
 <style>
   :root {
     --ink: #23264A;
@@ -108,10 +108,11 @@
     .num { width: 2rem; height: 2rem; font-size: 12pt; border: 1px solid var(--ink); }
     .habit { grid-template-columns: 2rem 1fr; }
   }
+  .btn { display: inline-block; background: var(--indigo); color: #fff; font-weight: 700; text-decoration: none; border-radius: 0.5rem; padding: 0.7rem 1.2rem; }
+  .btn:hover { background: var(--purple); }
 </style>
 </head>
 <body>
-  <a class="skip" href="#habits">Skip to the five habits</a>
   <header>
     <div class="wrap">
       <span class="label">Your gift</span>
@@ -120,159 +121,25 @@
       <p class="byline">Dr. Megan Alstot, Academy for Teaching and Learning, Baylor University<br>3rd Annual Protect Yourself! Conference, Better At Last, November 5, 2026</p>
     </div>
   </header>
-
   <main>
     <div class="wrap">
-      <section aria-labelledby="idea">
-        <div class="card">
-          <h2 id="idea">The big idea</h2>
-          <p>AI amplifies your expertise. It doesn't replace your experience. AI can help you understand, but only humans should decide.</p>
-          <div class="actions">
-            <button type="button" onclick="window.print()">Print the five habits</button>
-            <button type="button" class="secondary" id="share">Share this page</button>
-          </div>
-          <p class="status" id="share-status" role="status" aria-live="polite"></p>
-        </div>
-      </section>
-
-      <section id="habits" aria-labelledby="habits-title">
+      <section aria-labelledby="habits-title">
         <h2 id="habits-title">Five habits that keep the human in the lead</h2>
-
-        <article class="card habit">
-          <div class="num" aria-hidden="true">1</div>
-          <div>
-            <h3>Prompt as a CARER</h3>
-            <p>Give AI clear directions, the same way you would give them to a helper.</p>
-            <ul class="carer">
-              <li><strong>Context:</strong> what's going on and what you already know</li>
-              <li><strong>Action:</strong> what you want it to do</li>
-              <li><strong>Role:</strong> who it should act as</li>
-              <li><strong>Example:</strong> how you want it (a list, a summary, one question at a time)</li>
-              <li><strong>Rails:</strong> the limits (what to avoid, how long)</li>
-            </ul>
-            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p1" class="template">Context: [What's going on and what I already know]
-Action: [What I want you to do]
-Role: Act as [who should answer, like a patient educator, a travel planner, or a holiday host]
-Example: Give me [the shape of the answer, like a short list, a summary, or one question at a time]
-Rails: [The limits, like what to avoid, how long, and plain language]
-Ask me any questions you need before you answer.</span></div>
-            <button type="button" class="secondary copy" data-target="p1">Copy this template</button>
-          </div>
-        </article>
-
-        <article class="card habit">
-          <div class="num" aria-hidden="true">2</div>
-          <div>
-            <h3>Manage the desk</h3>
-            <p>One topic per chat, so important details don't slide off the workspace. In a long chat, ask for a summary, then paste it into a new chat.</p>
-            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p2" class="template">Summarize what we've discussed so far about [topic], including [the details I want to keep, like dates, limits, or decisions].</span></div>
-            <button type="button" class="secondary copy" data-target="p2">Copy this template</button>
-          </div>
-        </article>
-
-        <article class="card habit">
-          <div class="num" aria-hidden="true">3</div>
-          <div>
-            <h3>Lead with your expertise</h3>
-            <p>AI amplifies human expertise. Start with a topic you know well, and watch where it's right, wrong, or overstated. AI can help you understand, only humans should decide!</p>
-            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p3" class="template">I know a lot about [a topic I know well]. Here is what I think: [my view or plan].
-What are alternative points I may want to consider?
-What are other questions I can investigate?
-Give me two other perspectives on this issue.</span></div>
-            <button type="button" class="secondary copy" data-target="p3">Copy this template</button>
-          </div>
-        </article>
-
-        <article class="card habit">
-          <div class="num" aria-hidden="true">4</div>
-          <div>
-            <h3>Protect privacy</h3>
-            <p>Don't give AI names or personal numbers (birthdate, Social Security, address, accounts, etc.). Keep it general: "someone in their 70s," "my bank," "a family member."</p>
-            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p4" class="template">My [family member or friend, like granddaughter] is turning [age]. They love [interests] and live [general area, like out West]. Suggest [number] meaningful gift ideas, from something to buy to [something homemade or a care package].</span></div>
-            <button type="button" class="secondary copy" data-target="p4">Copy this template</button>
-          </div>
-        </article>
-
-        <article class="card habit">
-          <div class="num" aria-hidden="true">5</div>
-          <div>
-            <h3>Keep humans in your loop</h3>
-            <p>Use AI to reach the people you love, with a birthday poem, a gift idea, or a conversation starter, and keep real connection human! Ask your grandkids how they use AI, and show them how you check things.</p>
-            <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p5" class="template">Write a [funny, kind, or heartfelt] [birthday poem, card message, or toast] for my [relationship, like best friend], who loves [interests]. Keep it to [length, like eight lines].</span></div>
-            <button type="button" class="secondary copy" data-target="p5">Copy this template</button>
-          </div>
-        </article>
-        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+        <article class="card habit"><div class="num" aria-hidden="true">1</div><div><h3>Prompt as a CARER</h3><p>Give AI Context, an Action, a Role, an Example of how you want it, and Rails that set limits.</p></div></article>
+        <article class="card habit"><div class="num" aria-hidden="true">2</div><div><h3>Manage the desk</h3><p>One topic per chat so important details don't slide off the workspace.</p></div></article>
+        <article class="card habit"><div class="num" aria-hidden="true">3</div><div><h3>Lead with your expertise</h3><p>AI amplifies human expertise. AI can help you understand, only humans should decide!</p></div></article>
+        <article class="card habit"><div class="num" aria-hidden="true">4</div><div><h3>Protect privacy</h3><p>Don't give AI names or personal numbers (birthdate, Social Security, address, accounts, etc.).</p></div></article>
+        <article class="card habit"><div class="num" aria-hidden="true">5</div><div><h3>Keep humans in your loop</h3><p>Use AI to reach the people you love, with a birthday poem, a gift idea, or a conversation starter, and keep real connection human!</p></div></article>
       </section>
-
-      <section aria-labelledby="fun" class="no-print">
+      <section aria-labelledby="slides-title">
         <div class="card">
-          <h2 id="fun">Have some fun</h2>
-          <p>Kick the tires with something playful. No account is needed to try the free version of ChatGPT at chatgpt.com.</p>
-          <div class="prompt"><span class="prompt-label">Fill in the brackets</span><span id="p6" class="template">Write a [love song, ballad, opera, or limerick] from [a place or thing you love] to [another place or thing].</span></div>
-          <p>From the talk: "Write a love song from the Waco Suspension Bridge to the Brazos River."</p>
-          <button type="button" class="secondary copy" data-target="p6">Copy this template</button>
-        </div>
-      </section>
-
-      <section id="slides" aria-labelledby="slides-title">
-        <div class="note">
           <h2 id="slides-title">Slides</h2>
-          <p>The slides from the keynote will be posted here after the conference.</p>
-        </div>
-      </section>
-
-      <section id="reads" aria-labelledby="reads-title">
-        <h2 id="reads-title">Good reads</h2>
-        <div class="card">
-          <ul class="reads">
-            <li><a href="https://www.pewresearch.org/internet/2026/06/17/why-dont-people-use-chatbots/">Why don't people use chatbots?</a><span>Pew Research Center, 2026</span></li>
-            <li><a href="https://si.umich.edu/about-umsi/news/older-adults-and-ai-u-m-poll-suggests-wary-welcome">Older adults and AI: A wary welcome</a><span>University of Michigan National Poll on Healthy Aging, 2025</span></li>
-            <li><a href="https://wtop.com/lifestyle/2026/03/ai-is-giving-bad-advice-to-flatter-its-users-says-new-study-on-dangers-of-overly-agreeable-chatbots/">AI is giving bad advice to flatter its users</a><span>Associated Press coverage of the 2026 Stanford study in Science</span></li>
-            <li><a href="https://www.aarp.org/money/scams-fraud/fbi-ftc-report-2025-losses">FBI report: Older adults hit hardest by internet crime</a><span>AARP, 2026</span></li>
-          </ul>
+          <p>View or download the slides from today's keynote.</p>
+          <p><a class="btn" href="warning-label-slides.pdf">Open the slides (PDF, 2.5 MB)</a></p>
         </div>
       </section>
     </div>
   </main>
   <footer>Dr. Megan Alstot, Academy for Teaching and Learning, Baylor University</footer>
-
-<script>
-  (function () {
-    var copyStatus = document.getElementById('copy-status');
-    var shareStatus = document.getElementById('share-status');
-    function copyText(text, statusEl, done) {
-      function fallback() {
-        var ta = document.createElement('textarea');
-        ta.value = text; ta.setAttribute('readonly', '');
-        ta.style.position = 'absolute'; ta.style.left = '-9999px';
-        document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); statusEl.textContent = done; }
-        catch (e) { statusEl.textContent = 'Copy did not work. You can select the text and copy it.'; }
-        document.body.removeChild(ta);
-      }
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text).then(function () { statusEl.textContent = done; }, fallback);
-        } else { fallback(); }
-      } catch (e) { fallback(); }
-    }
-    document.querySelectorAll('.copy').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var el = document.getElementById(btn.getAttribute('data-target'));
-        btn.insertAdjacentElement('afterend', copyStatus);
-        copyText(el.textContent, copyStatus, 'Copied! Paste it into ChatGPT, Copilot, Gemini, or Claude.');
-      });
-    });
-    document.getElementById('share').addEventListener('click', function () {
-      var data = { title: "Don't Wait for the Warning Label", text: 'Five habits that keep the human in the lead with AI', url: location.href };
-      if (navigator.share) {
-        navigator.share(data).catch(function () {});
-      } else {
-        copyText(location.href, shareStatus, 'Link copied! Paste it into a text or email.');
-      }
-    });
-  })();
-</script>
 </body>
 </html>
